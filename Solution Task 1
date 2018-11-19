@@ -1,0 +1,81 @@
+
+class Customer {
+    private String name;
+    private Rental rental;
+
+    public Customer( String name, Rental rental) {
+        this.name = name;
+        this.rental = rental;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+//    public double getRentalAmount() {
+//        return Rental.(this.rental);
+//    }
+
+    public int getRentalKind() {
+        return this.rental.getKind();
+    }
+
+    public void setRentalKind(int kind) {
+        this.rental.setKind(kind);
+    }
+
+    public int getRentalDays() {
+        return this.rental.getDays();
+    }
+
+    public void setRentalDays(int days) {
+        this.rental.setDays(days);
+    }
+}
+
+
+class Rental {
+    private int kind;
+    private int days;
+    private double amount;
+
+    private double amountFor() {
+        double result = (double)this.days * this.getBasePrice();
+        result *= this.kind == 1 ? 1.5D : (this.kind == 2 ? 2.0D : (this.kind == 3 ? 2.5D : 1.0D));
+        return this.days > 7 ? result * 3.0D : result;
+    }
+
+    public Rental(int kind, int days) {
+        this.kind = kind;
+        this.days = days;
+        this.amount = this.amountFor();
+    }
+
+    public double getAmount() {
+        return this.amount;
+    }
+
+    public int getKind() {
+        return this.kind;
+    }
+
+    public void setKind(int kind) {
+        this.kind = kind;
+    }
+
+    public int getDays() {
+        return this.days;
+    }
+
+    public void setDays(int days) {
+        this.days = days;
+    }
+
+    public double getBasePrice() {
+        return this.kind == 1 ? 1100.0D : (this.kind == 2 ? 1200.0D : (this.kind == 3 ? 1300.0D : 1000.0D));
+    }
+}
