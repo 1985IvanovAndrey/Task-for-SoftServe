@@ -15,11 +15,7 @@ class Customer {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public double getRentalAmount() {
-//        return Rental.(this.rental);
-//    }
-
+ 
     public int getRentalKind() {
         return this.rental.getKind();
     }
